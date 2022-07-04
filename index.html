@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="sources/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="sources/viz.js" type="text/javascript"></script>
+<script src="sources/main.js" type="text/javascript"></script>
+</head>
+<body>
+<h2>Negotiation games</a></h2>
+<small>
+Tool implemented by François Schwarzentruber using the algorithm of Valentin Goranko in his 
+<a href="http://www2.philosophy.su.se/goranko/papers/LOFT2016-PreplayNegotiationsUnconditionalOffers.pdf">LOFT 2016 paper</a>.
+</small>
+</br></br>
+<table><tr><td>
+<h3>Input <button onclick="execute()"><img height=32px src="run.png"/>Run</button></br></h3>
+<textarea id="code" rows=30 cols=50>
+/** We give an example of a full negociation. Players are R and C.**/
+
+g = [ [   [2, 10],  [10, 4],    [5, 1] ],
+      [   [6, 0], [4, 4],   [6, 3]   ]];
+      
+showFullNegotiation(g, R, maxminvalue);
+      
+      
+      
+      
+/**
+Now, the rest is commented and gives some possible examples of use of functions.
+
+g = [ [   [1, 8], [10, 4] ],
+      [  [4, 10], [1, 11] ],
+      [  [4, 0],    [2,2]]];
+      
+o = bestoffer(g, C, R);
+g = transformedGame(g, o);
+showOffer(o);
+showGame(g);
+
+o = bestoffer(g, R, C);
+g = transformedGame(g, o);
+showOffer(o);
+showGame(g);
+
+
+
+o = bestoffer(g, C, R);
+g = transformedGame(g, o);
+showOffer(o);
+showGame(g);
+
+
+o = bestoffer(g, R, C);
+g = transformedGame(g, o);
+showOffer(o);
+showGame(g);
+      
+
+initialGame = [  [    [4, 5],   [0, 6]   ],
+                     [    [6, 0],   [1, 1]   ]];
+showGame(initialGame);                
+showNashEquilibrium(initialGame);
+
+game2 = transformedGame(initialGame, {offerer: R, receiver: C, payment: 2, receiveraction: 0});
+
+showGame(game2);
+
+showNashEquilibrium(game2);
+
+game3 = transformedGame(initialGame, {offerer: C, receiver: R, payment: 2, receiveraction: 0});
+
+showGame(game3);
+showNashEquilibrium(game3);**/
+</textarea>
+</td>
+<td>
+<h3>Output</h3>
+<textarea id="output" rows=30 cols=60></textarea>
+</td><td><div id="error" class="error"></div></td></tr></table>
+</html>
